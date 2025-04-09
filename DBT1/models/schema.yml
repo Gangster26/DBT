@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: raw
+    database: DEV
+    schema: RAW
+    tables:
+      - name: user_session_channel
+        identifier: USER_SESSION_CHANNEL
+      - name: session_timestamp
+        identifier: SESSION_TIMESTAMP
+
+models:
+  - name: session_summary
+    description: "Analytics model for session data"
+    columns:
+      - name: sessionId
+        description: "Unique identifier for each session"
+        tests:
+          - unique
+          - not_null
